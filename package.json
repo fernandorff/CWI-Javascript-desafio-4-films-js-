@@ -1,5 +1,5 @@
 {
-  "name": "crescer",
+  "name": "films-array-js",
   "scripts": {
     "start": "babel-node index.js",
     "test": "jest"
