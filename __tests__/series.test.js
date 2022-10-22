@@ -39,8 +39,8 @@ describe("Exemplo de testes", () => {
     expect(resposta).toBe(true);
   });
 
-  // Deve retornar false ao procurar ator que está em elenco
-  it("Deve retornar false ao procurar ator que está em elenco", async () => {
+  // Deve retornar false ao procurar ator que não participa de elenco
+  it("Deve retornar false ao procurar ator que não participa de elenco", async () => {
     const resposta = await verificarSeAtorEstaEmSeriado(api, 1, "Heath Ledger");
 
     expect(resposta).toBe(false);
