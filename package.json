@@ -1,4 +1,5 @@
 {
+  "type": "module",
   "name": "films-array-js",
   "scripts": {
     "start": "babel-node index.js",

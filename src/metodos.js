@@ -1,15 +1,58 @@
-export function filtarPorAnoERetornarNome(series, ano) {
-  return null
+import axios from "axios";
+
+export async function filtarPorAnoERetornarNome(series, ano1, ano2) {
+  const getResponse = await axios
+    .get(series)
+    .then((response) => response)
+    .catch((err) => console.log(err));
+
+  const filtrados = [];
+  getResponse.data.forEach((element) => {
+    if (element.anoEstreia >= ano1 && element.anoEstreia <= ano2) {
+      filtrados.push(element.titulo);
+    }
+  });
+  return filtrados;
 }
 
-export function verificarSeAtorEstaEmSeriado(series, nomeAtor) {
-  return null
+export async function verificarSeAtorEstaEmSeriado(series, serieId, nomeAtor) {
+  const getResponse = await axios
+    .get(series)
+    .then((response) => response)
+    .catch((err) => console.log(err));
+  const lista = getResponse.data;
+  const resposta = lista[serieId].elenco.includes(nomeAtor);
+  return resposta;
 }
 
-export function calcularMediaTotalDeEpisodios(series) {
-  return null
+export async function calcularMediaTotalDeEpisodios(series) {
+  const getResponse = await axios
+    .get(series)
+    .then((response) => response)
+    .catch((err) => console.log(err));
+  const lista = getResponse.data;
+  let totalEpisodios = 0;
+  lista.forEach((element) => {
+    totalEpisodios += element.numeroEpisodios;
+  });
+  let mediaEpisodios = totalEpisodios / lista.length;
+  return mediaEpisodios;
 }
 
-export function agruparTituloDasSeriesPorPropriedade(series, propriedade) {
-  return null
+export async function agruparTituloDasSeriesPorPropriedade(
+  series,
+  propriedade
+) {
+  const getResponse = await axios
+    .get(series)
+    .then((response) => response)
+    .catch((err) => console.log(err));
+  const lista = getResponse.data;
+  const filtrados = [];
+  lista.forEach((element) => {
+    if (element.distribuidora == propriedade) {
+      filtrados.push(element.titulo);
+    }
+  });
+  return filtrados;
 }
