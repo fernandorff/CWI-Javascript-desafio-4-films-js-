@@ -1,3 +1,5 @@
+![image](https://user-images.githubusercontent.com/101672271/197370156-b9b5915d-ce3d-4a6f-ac0d-49da396eec6d.png)
+
 # films-array-js
 
 Bora praticar um pouco mais o que aprendemos sobre callback e metodos de array
